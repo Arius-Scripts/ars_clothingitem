@@ -14,7 +14,7 @@
 * [ox_lib](https://github.com/overextended/ox_lib)
 > Installation 
 
-*Dont change the item names or else it wont work*
+*Dont change the names or else it wont work*
 Path: ox_inventory/data/items.lua
 
 ```
