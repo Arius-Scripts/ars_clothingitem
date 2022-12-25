@@ -131,4 +131,7 @@ Path: ox_inventory/data/items.lua
 ```
 ![image](https://user-images.githubusercontent.com/70983185/209468667-40ba1779-925d-453c-a59e-95d5882dcf81.png)
 
+![image](https://user-images.githubusercontent.com/70983185/209471426-3749c1b4-0d41-4ae9-b6b7-49317e874b46.png)
+![image](https://user-images.githubusercontent.com/70983185/209471429-197b53dc-46a0-40f5-84b1-734bb30f0e12.png)
+![image](https://user-images.githubusercontent.com/70983185/209471431-7b323d73-500f-421b-b132-969451433821.png)
 
