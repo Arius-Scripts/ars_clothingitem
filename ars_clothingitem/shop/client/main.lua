@@ -36,3 +36,111 @@ CreateThread(function()
         end
     end
 end)
+
+
+
+lib.registerContext({
+    id = 'clothingMenu',
+    title = 'Clothing Shop',
+    options = {
+        {
+            title = 'Shop',
+            description = 'Open clothing shop',
+            onSelect = function(args)
+                lib.hideContext()
+                shopInput()
+            end,
+        },
+        {
+            title = 'Search',
+            description = 'Search clothing by clicking here!',
+            onSelect = function(args)
+                lib.hideContext()
+                selectInput()
+            end,
+        },
+    },
+})
+
+
+function shopInput()
+    local input = lib.inputDialog('Shop', {
+        { type = 'select', label = 'Type', options = {
+            { value = 'torso', label = 'Torso' },
+            { value = 'pants', label = 'Pants' },
+            { value = 'shirt', label = 'Shirt'},
+            { value = 'shoes', label = 'Shoes'},
+            { value = 'mask', label = 'Mask'},
+            { value = 'bag', label = 'Bag'},
+
+            { value = 'hat', label = 'Hat'},
+            { value = 'glasses', label = 'Glasses'},
+            { value = 'watch', label = 'Watch'},
+            { value = 'earrings', label = 'Earrings'},
+        }},
+    })
+
+    if input then
+
+        value = input[1]
+
+		ox_inventory:openInventory('shop', {id=value, type=value})
+
+    end
+end
+
+
+local types = {
+    torso = 11,
+    pants = 4,
+    shoes = 6,
+    shirt = 8,
+    mask = 1,
+    bag = 5,
+
+    hat = 0,
+    glasses = 1,
+    watch = 6,
+    earrings = 2,
+}
+
+function selectInput()
+    local input = lib.inputDialog('Shop', {
+        { type = 'select', label = 'Type', options = {
+            { value = 'torso', label = 'Torso' },
+            { value = 'pants', label = 'Pants' },
+            { value = 'shirt', label = 'Shirt'},
+            { value = 'shoes', label = 'Shoes'},
+            { value = 'mask', label = 'Mask'},
+            { value = 'bag', label = 'Bag'},
+
+            { value = 'hat', label = 'Hat'},
+            { value = 'glasses', label = 'Glasses'},
+            { value = 'watch', label = 'Watch'},
+            { value = 'earrings', label = 'Earrings'},
+        }},
+        { type = "number", label = "Drawable", default = 1 },
+        { type = "number", label = "Texture", default = 0 },
+    })
+
+    if input then
+
+        value = input[1]
+        drawable = input[2]
+        texture = input[3]
+
+        TriggerServerEvent("ars_clothing:selectItem", value, tonumber(types[value]), drawable, texture)
+        exports.ox_inventory:openInventory('shop', { type = value..drawable, id = 1})
+    end
+end
+
+function openClothingMenu()
+    lib.showContext('clothingMenu')
+end
+
+
+RegisterCommand("clothingmenu", function()
+    lib.showContext('clothingMenu')
+end)
+
+exports('openClothingMenu', openClothingMenu)
