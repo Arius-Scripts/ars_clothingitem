@@ -7,3 +7,14 @@ CreateThread(function()
         })
     end
 end)
+
+RegisterNetEvent("ars_clothing:selectItem", function(name, t, drawable, texture)
+    ox_inventory:RegisterShop(name..drawable, {
+        name = "Search "..name.." #"..drawable,
+        inventory = 
+        {
+            {name = name, price = 15, metadata = {type = t, drawable = drawable, texture = texture, label = name..' '..drawable, image = name..'_1'} },
+        },
+    })
+end)
+
