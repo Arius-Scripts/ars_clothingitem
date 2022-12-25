@@ -61,4 +61,3 @@ exports('accessories', function(data, slot)
 		end
 	end)
 end)
-
